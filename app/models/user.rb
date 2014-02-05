@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :profile_name
+  # attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :profile_name
 
   validates :first_name, presence: true
 
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
                              with: /\A[a-zA-Z0-9_-]+\Z/,
                              message: 'Must be formatted correctly.'
                            }
-has_many :statuses
+  has_many :statuses
 
   def full_name
     first_name + " " + last_name
